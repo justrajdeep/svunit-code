@@ -236,7 +236,7 @@ sub CreateTestSuite() {
     print OUTFILE "    svunit_ts.add_testcase($item.svunit_ut);\n";
     $cnt++;
   }
-  print OUTFILE "  endfunction\n\n";
+  print OUTFILE "  endfunction: build\n\n";
 
 
   print OUTFILE "\n";
@@ -250,9 +250,9 @@ sub CreateTestSuite() {
     $cnt++;
   }
   print OUTFILE "    svunit_ts.report();\n";
-  print OUTFILE "  endtask\n\n";
+  print OUTFILE "  endtask: run\n\n";
 
-  print OUTFILE "endmodule\n";
+  print OUTFILE "endmodule: $class\n";
 
 }
 

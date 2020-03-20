@@ -349,7 +349,7 @@ sub CreateUnitTest() {
       print OUTFILE "    my_$uut = new(\/\* New arguments if needed \*\/);\n";
     }
   }
-  print OUTFILE "  endfunction\n\n\n";
+  print OUTFILE "  endfunction: build\n\n\n";
   print OUTFILE "  //===================================\n";
   print OUTFILE "  // Setup for running the Unit Tests\n";
   print OUTFILE "  //===================================\n";
@@ -363,7 +363,7 @@ sub CreateUnitTest() {
     print OUTFILE "    //-----------------------------\n";
     print OUTFILE "    svunit_uvm_test_start();\n\n\n\n";
   }
-  print OUTFILE "  endtask\n\n\n";
+  print OUTFILE "  endtask: setup\n\n\n";
   print OUTFILE "  //===================================\n";
   print OUTFILE "  // Here we deconstruct anything we \n";
   print OUTFILE "  // need after running the Unit Tests\n";
@@ -380,7 +380,7 @@ sub CreateUnitTest() {
   if ($uvm_test) {
     print OUTFILE "    svunit_deactivate_uvm_component(my_$uut);\n";
   }
-  print OUTFILE "  endtask\n\n\n";
+  print OUTFILE "  endtask: teardown\n\n\n";
   print OUTFILE "  //===================================\n";
   print OUTFILE "  // All tests are defined between the\n";
   print OUTFILE "  // SVUNIT_TESTS_BEGIN/END macros\n";
@@ -397,7 +397,7 @@ sub CreateUnitTest() {
   print OUTFILE "  `SVUNIT_TESTS_BEGIN\n\n\n\n";
   print OUTFILE "  `SVUNIT_TESTS_END\n\n";
 
-  print OUTFILE "endmodule\n";
+  print OUTFILE "endmodule: $uut\_unit_test\n";
 }
 
 ##########################################################################

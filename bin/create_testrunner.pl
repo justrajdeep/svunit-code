@@ -203,7 +203,7 @@ sub CreateTestSuite() {
     $cnt++;
   }
 
-  print OUTFILE "  endfunction\n\n\n";
+  print OUTFILE "  endfunction: build\n\n\n";
 
   print OUTFILE "  //===================================\n";
   print OUTFILE "  // Run\n";
@@ -213,11 +213,11 @@ sub CreateTestSuite() {
     print OUTFILE "    $item.run();\n";
   }
   print OUTFILE "    svunit_tr.report();\n";
-  print OUTFILE "  endtask\n";
+  print OUTFILE "  endtask: run\n";
 
   print OUTFILE "\n";
   print OUTFILE "\n";
-  print OUTFILE "endmodule\n";
+  print OUTFILE "endmodule: $class\n";
 }
 
 
